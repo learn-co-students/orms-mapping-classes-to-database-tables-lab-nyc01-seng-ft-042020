@@ -17,20 +17,32 @@ def self.all
   @@all
 end
 
+# def self.create_table
+# sql = <<-SQL
+#   CREATE TABLE IF NOT EXISTS students (
+#     id INTEGER PRIMARY KEY,
+#     name TEXT,
+#     grade INTEGER
+#   );
+#   SQL
+#   DB[:conn].execute(sql)
+# end
+
 def self.create_table
-sql = <<-SQL
-  CREATE TABLE IF NOT EXISTS students (
-    id INTEGER PRIMARY KEY,
-    name TEXT,
-    grade TEXT
-  );
-  SQL
+  sql =  <<-SQL
+    CREATE TABLE IF NOT EXISTS students (
+      id INTEGER PRIMARY KEY, 
+      name TEXT, 
+      grade INTEGER
+      );
+      SQL
   DB[:conn].execute(sql)
-end
+end  
+
 
 def self.drop_table
 sql = <<-SQL
- DROP TABLE IF EXISTS students;
+ DROP TABLE IF EXISTS students
  SQL
 DB[:conn].execute(sql)
 end
@@ -59,6 +71,9 @@ def self.create(name:,grade:)
   student 
   #ALWAYS RETURN THE INSTANCE ON THE FINAL LINE
 end
+
+
+
 
 end
 
